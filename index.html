@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function fuc(){
+       let result= await fetch("https://jsonplaceholder.typicode.com/users")
+         result= await result.json()
+       console.log(result)
+       document.getElementById("user").innerHTML=result.map((e)=> `
+       <tr>
+        <td>${e.id}</td>
+        <td>${e.name}</td>
+        <td>${e.email}</td>
+        
+        </tr>
+       `)
+
+
+       }
+       fuc();
+   </script>
+</head>
+<body>
+    <h1>hello Api</h1>
+    <table border="1">
+        <thead>
+            <tr>
+ <th>id</th>
+ <th>name</th>
+ <th>email</th>
+        </tr>
+        </thead>
+
+        <tbody id="user">
+    
+        </tbody>
+
+    </table>
+
+
+   
+   
+   
+</body>
+</html>
